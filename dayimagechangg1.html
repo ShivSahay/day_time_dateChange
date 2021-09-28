@@ -1,0 +1,113 @@
+<html>
+   <head>
+       <title>GetElementById  Example</title> 
+ <style>
+   *{
+     margin:0;
+     padding:0;
+   }
+   body{
+     border: 20px double red;
+     background-image: url("bground.jpg");
+    }
+   #p2{
+     border-top: 10px solid orange;
+     border-bottom: 10px solid orange;
+     text-align:center;
+     position:relative;  
+   }
+   #time{
+     color:blue;
+     padding-left: 10px;
+     padding-top: 20px;;
+     text-align:left;
+     font-size:34px;
+     float: left;
+     font-weight: bold;
+    }
+   #time_change{
+     color: orange;
+     padding-left: 10px;
+     padding-top: 20px;;
+     text-align:left;
+     font-size:34px;
+     font-weight: bold;
+    }
+   #p1:hover{
+     color:teal;
+     font-size: 20px;
+   }
+ </style>
+<script>
+  function time(){ 
+            var d=new Date();
+            var year=d.getUTCDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+            //document.getElementById("year")
+         var time=d.getHours()+"::"+d.getMinutes()+"::"+d.getSeconds();
+     document.getElementById("time").innerHTML="<br>Time:<br>"+time+"<br><br><font color='brown'> Yaer:<br>"+year+"</font>";
+       if(d.getHours()>=4 && d.getHours()<11)
+        document.getElementById("time_change").innerHTML="Good morning friends";
+       else if(d.getHours()>=11 && d.getHours()<16)
+       document.getElementById("time_change").innerHTML="Good Afternoon friends";
+       else if(d.getHours()>=16 && d.getHours()<20)
+       document.getElementById("time_change").innerHTML="Good Evening friends";
+       else
+       document.getElementById("time_change").innerHTML="Good Night friends";
+       window.setTimeout("time()",1000);  
+    } 
+          
+       function display(){
+       var image=new Array("sun.jpg","mon.jpg","tues.jpg","wednes.jpg","thurs.jpg","fri.jpg","satar.jpg");
+ //     document.write(image[0]);
+         var dt=new Date();
+
+        
+        switch(dt.getDay())
+         {
+          case 0:
+          document.getElementById("p1").innerHTML="<h1>Today is sundey</h1>";
+          document.getElementById("image1").src=image[0];
+          break;
+          case 1:
+          document.getElementById("p1").innerHTML="<h1>Today is mondey</h1>";
+          document.getElementById("image1").src=image[1];          
+          break;
+          case 2:
+          document.getElementById("p1").innerHTML="<h1>Today is tuesdey</h1>";
+          document.getElementById("image1").src=image[2];
+          break;
+          case 3:
+          document.getElementById("p1").innerHTML="<h1>Today is wednesdey</h1>";
+          document.getElementById("image1").src=image[3];
+          break;
+          case 4:
+          document.getElementById("p1").innerHTML="<h1>Today is thursdey</h1>";
+          document.getElementById("image1").src=image[4];
+          break;
+          case 5:
+          document.getElementById("p1").innerHTML="<h1>Today is fridey</h1>";
+          document.getElementById("image1").src=image[5];
+          break;
+          case 6:
+          document.getElementById("p1").innerHTML="<h1>Today is saturdey</h1>"; 	
+          document.getElementById("image1").src=image[6];        
+          break;
+         }        
+       }
+    </script>   
+  <head>
+  <body onload="display();time();">
+  <center>
+    <p id="time_change"></p>
+    <img src="gimage.jpg" style="top: 10px;float:left;" height="50px" width="50px">
+    <p id="time"></p><img src=" " id="image1" height="400" width="400"/>
+    
+    <div id="p2"> <marquee><p id="p1"></p></marquee></div> 
+<!--<input type="button" height="100" width="100" onClick="display();" value="display date"/>-->
+<br>
+<font color="yellow">This website is developed by Shiv Sahay Pandey BCA<br>
+  Mo.: +919670806575<br>
+  E-mail: pt.shivsahaypandey@gmail.com</font> 
+</center>
+  </body>
+</html>
